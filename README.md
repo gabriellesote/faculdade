@@ -13,9 +13,18 @@
   <img alt="foto do projeto" src="https://github.com/gabriellesote/readmes/blob/main/faculdade.png?raw=true" width="80%">
 </p>
 
+## 💻 3° Semestre
+#### Computação Gráfica:
+Área que cria e exibe imagens visuais e gráficos usando algoritmos em computadores. Importante para jogos, cinema, design e simulações.
+#### Estruturas Matemáticas:
+Estudo de conceitos matemáticos abstratos, como grupos, anéis e espaços vetoriais. Fundamentais para resolver problemas e aplicar a matemática em várias áreas.
+
+> Ambas as áreas, Computação Gráfica e Estruturas Matemáticas, desempenham papéis cruciais no desenvolvimento de tecnologias modernas, como gráficos de jogos, simulações, modelagem de objetos 3D e algoritmos computacionais complexos.
+
+
 ## 🚀 Tecnologias
 
-Esse estudo foi sendo seguido com as seguintes tecnologias:
+Tecnologias que serão usadas ao longo do semestre
 
 <p align="left">
 <a href="https://www.blender.org/" target="_blank" rel="noreferrer"><img src="https://download.blender.org/branding/community/blender_community_badge_white.svg" alt="blender" width="60" height="60"/></a> 
