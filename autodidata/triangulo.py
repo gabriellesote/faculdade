@@ -41,7 +41,7 @@ while not glfw.window_should_close(window):
     glfw.poll_events()
 
     glClear(GL_COLOR_BUFFER_BIT)
-    glRotatef(0.1, 0, 1, 0)
+    glRotatef(0.2, 1, 0, 0)
     glDrawArrays(GL_TRIANGLES, 0, 3)
 
     glfw.swap_buffers(window)
