@@ -3,10 +3,8 @@ from OpenGL.GL import *
 from OpenGL.GL.shaders import compileProgram, compileShader
 import numpy as np
 
-
 vertex_src = """
-# version 460
-
+# version 330
 in vec3 a_position;
 in vec3 a_color;
 out vec3 v_color;
@@ -18,8 +16,7 @@ void main()
 """
 
 fragment_src = """
-# version 460
-
+# version 330
 in vec3 v_color;
 out vec4 out_color;
 void main()
@@ -38,7 +35,7 @@ if not window:
     glfw.terminate()
     raise Exception("glfw can not be created")
 
-glfw.set_window_pos(window, 400, 200)
+glfw.set_window_pos(window, 400, 100)
 
 glfw.make_context_current(window)
 
@@ -53,27 +50,21 @@ colors = [1.0, 0.0, 0.0,        # - red  (valores rgb)
 vertices = np.array(vertices, dtype=np.float32)
 colors = np.array(colors, dtype=np.float32)
 
-shader = compileProgram(compileShader(vertex_src, GL_VERTEX_SHADER), compileShader(fragment_src, GL_FRAGMENT_SHADER))
-print("Shader de vértices compilado com sucesso!")
+glEnableClientState(GL_VERTEX_ARRAY)
+glVertexPointer(3,GL_FLOAT, 0, vertices)
 
-VBO = glGenBuffers(2)
-glBindBuffer(GL_ARRAY_BUFFER, VBO)
-glBufferData(GL_ARRAY_BUFFER, len(vertices)*4, vertices, GL_STATIC_DRAW)
+glEnableClientState(GL_COLOR_ARRAY)
+glColorPointer(3, GL_FLOAT, 0, colors)
 
-position = glGetAttribLocation(shader,"a_position")
-glEnableVertexAttribArray(position)
-glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, 0, ctypes.c_void_p(0))
+glClearColor(0.38, 0.38, 0.38, 1)
 
 
-
-glUseProgram(shader)
-glClearColor(0, 0.1, 0.1, 1)
 
 while not glfw.window_should_close(window):
     glfw.poll_events()
 
     glClear(GL_COLOR_BUFFER_BIT)
-
+    glRotatef(0.2, 1, 0, 0)
     glDrawArrays(GL_TRIANGLES, 0, 3)
 
     glfw.swap_buffers(window)
