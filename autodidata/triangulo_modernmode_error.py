@@ -5,7 +5,8 @@ import numpy as np
 
 
 vertex_src = """
-# version 330 core
+# version 460
+
 in vec3 a_position;
 in vec3 a_color;
 out vec3 v_color;
@@ -17,7 +18,8 @@ void main()
 """
 
 fragment_src = """
-# version 330 core
+# version 460
+
 in vec3 v_color;
 out vec4 out_color;
 void main()
@@ -52,8 +54,9 @@ vertices = np.array(vertices, dtype=np.float32)
 colors = np.array(colors, dtype=np.float32)
 
 shader = compileProgram(compileShader(vertex_src, GL_VERTEX_SHADER), compileShader(fragment_src, GL_FRAGMENT_SHADER))
+print("Shader de vértices compilado com sucesso!")
 
-VBO = glGenBuffers(1)
+VBO = glGenBuffers(2)
 glBindBuffer(GL_ARRAY_BUFFER, VBO)
 glBufferData(GL_ARRAY_BUFFER, len(vertices)*4, vertices, GL_STATIC_DRAW)
 
